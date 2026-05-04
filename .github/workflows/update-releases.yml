@@ -16,7 +16,7 @@ jobs:
 
       - name: Fetch releases from Google Sheets (CSV)
         run: |
-          curl -L "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv&gid=0" -o releases.csv
+          curl -L "https://docs.google.com/spreadsheets/d/1WboG1VqhwMkr6kG8PV3dKzOyB8371K9F6UNsK8YLOrg/export?format=csv&gid=0" -o releases.csv
 
       - name: Generate releases HTML
         run: |
