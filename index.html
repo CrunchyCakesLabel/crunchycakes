@@ -67,6 +67,12 @@
             margin: 3rem 0;
         }
 
+        /* 3D Tilt Card Container */
+        .tilt-card {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
         .card {
             background: #141414;
             padding: 1.8rem;
@@ -74,11 +80,13 @@
             border: 1px solid #2a2a2a;
             transition: all 0.3s ease;
             position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
         }
 
         .card:hover {
             border-color: #ffffff;
-            transform: translateY(-6px);
             box-shadow: 
                 0 0 15px rgba(255, 255, 255, 0.05),
                 0 0 30px rgba(255, 255, 255, 0.03),
@@ -251,6 +259,12 @@
             .more-info h2 {
                 font-size: 1.5rem;
             }
+            .card {
+                transition: transform 0.2s ease;
+            }
+            .card:hover {
+                transform: translateY(-4px) !important;
+            }
         }
     </style>
 </head>
@@ -265,44 +279,54 @@
             <div class="tagline">independent label — 70/30 split — free cover art — fast distribution</div>
         </div>
 
-        <!-- Преимущества / условия -->
+        <!-- Преимущества / условия с 3D эффектом -->
         <div class="grid">
-            <div class="card">
-                <h3>📀 70/30 split</h3>
-                <p>You keep 70% of royalties. We take 30%. No hidden fees, no upfront payments.</p>
-                <a href="#more-info" class="btn btn-outline" style="margin-top: 1rem;">Learn more ↓</a>
+            <div class="tilt-card">
+                <div class="card" id="card1">
+                    <h3>📀 70/30 split</h3>
+                    <p>You keep 70% of royalties. We take 30%. No hidden fees, no upfront payments.</p>
+                    <a href="#more-info" class="btn btn-outline" style="margin-top: 1rem;">Learn more ↓</a>
+                </div>
             </div>
-            <div class="card">
-                <h3>🎨 Free cover art</h3>
-                <p>Professional, eye-catching covers designed by our team. No extra cost.</p>
-                <ul style="margin-top: 0.8rem;">
-                    <li>Neon / dark aesthetic</li>
-                    <li>Custom typography</li>
-                    <li>Fits modern streaming</li>
-                </ul>
+            <div class="tilt-card">
+                <div class="card" id="card2">
+                    <h3>🎨 Free cover art</h3>
+                    <p>Professional, eye-catching covers designed by our team. No extra cost.</p>
+                    <ul style="margin-top: 0.8rem;">
+                        <li>Neon / dark aesthetic</li>
+                        <li>Custom typography</li>
+                        <li>Fits modern streaming</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <h3>⚡ Fast distribution</h3>
-                <p>3–7 days to all platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
-                <p style="margin-top: 0.8rem;"><strong>Payment:</strong> USDT (TRC-20). Label covers network fees.</p>
+            <div class="tilt-card">
+                <div class="card" id="card3">
+                    <h3>⚡ Fast distribution</h3>
+                    <p>3–7 days to all platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
+                    <p style="margin-top: 0.8rem;"><strong>Payment:</strong> USDT (TRC-20). Label covers network fees.</p>
+                </div>
             </div>
         </div>
 
         <!-- О нас / связь -->
         <div class="grid">
-            <div class="card">
-                <h3>🧁 Crunchy means pleasant</h3>
-                <p>No bullshit, no exclusivity traps. We're an extremely independent community & label.</p>
-                <p style="margin-top: 0.8rem;">We focus on: <strong>Brazilian funk, phonk, electronic music.</strong></p>
-                <div style="margin-top: 1rem;">
-                    <a href="#" class="btn btn-outline" style="margin-right: 0.5rem;">🎵 Discord</a>
-                    <a href="#" class="btn btn-outline">📷 Instagram</a>
+            <div class="tilt-card">
+                <div class="card" id="card4">
+                    <h3>🧁 Crunchy means pleasant</h3>
+                    <p>No bullshit, no exclusivity traps. We're an extremely independent community & label.</p>
+                    <p style="margin-top: 0.8rem;">We focus on: <strong>Brazilian funk, phonk, electronic music.</strong></p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="btn btn-outline" style="margin-right: 0.5rem;">🎵 Discord</a>
+                        <a href="#" class="btn btn-outline">📷 Instagram</a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <h3>📬 Send your demo</h3>
-                <p>Fill out the form below. Our A&R reviews every submission.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">✅ Quick response — 3–5 days.</p>
+            <div class="tilt-card">
+                <div class="card" id="card5">
+                    <h3>📬 Send your demo</h3>
+                    <p>Fill out the form below. Our A&R reviews every submission.</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">✅ Quick response — 3–5 days.</p>
+                </div>
             </div>
         </div>
 
@@ -318,7 +342,7 @@
             <p>We provide a professional cover for every release — custom design, high resolution, ready for streaming platforms. If you already have cover art, that's fine too.</p>
             
             <h3>⚡ Speed & distribution</h3>
-            <p>We release to all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more. Moderation usually takes 3–7 days via FreshTunes Pro.</p>
+            <p>We release to all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more. Moderation usually takes 3–7 days.</p>
             
             <h3>🔓 No exclusivity</h3>
             <p>You're free to release music anywhere else. There's no lock-in period. If you want to leave — just let us know 30 days in advance.</p>
@@ -354,5 +378,31 @@
             <p style="margin-top: 0.5rem;">🍰 Crunchy means pleasant · All rights reserved · fast · fair · independent</p>
         </div>
     </div>
+
+    <script>
+        // 3D Tilt эффект для карточек
+        document.querySelectorAll('.tilt-card').forEach((tiltContainer) => {
+            const card = tiltContainer.querySelector('.card');
+            
+            tiltContainer.addEventListener('mousemove', (e) => {
+                const rect = tiltContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left; // X позиция внутри контейнера
+                const y = e.clientY - rect.top;  // Y позиция внутри контейнера
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Вычисляем угол наклона от -5 до 5 градусов
+                const rotateX = (y - centerY) / centerY * -5;
+                const rotateY = (x - centerX) / centerX * 5;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
+            });
+            
+            tiltContainer.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+        });
+    </script>
 </body>
 </html>
