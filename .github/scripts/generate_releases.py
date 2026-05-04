@@ -1,51 +1,67 @@
 import csv
-import json
 from html import escape
 
-def generate_release_cards(csv_path):
-    cards = []
+def get_releases(csv_path):
+    releases = []
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            artist = escape(row.get('artist', ''))
-            title = escape(row.get('title', ''))
-            spotify_url = row.get('spotify_url', '#')
-            cover_url = row.get('cover_url', '')
-            
-            cover_html = f'<img src="{cover_url}" alt="{title}" style="width: 100%; height: 100%; object-fit: cover;">' if cover_url else '<span class="placeholder">🎵</span>'
-            
-            card = f'''
-            <div class="release-card">
-                <div class="release-cover">
-                    {cover_html}
-                </div>
-                <div class="release-info">
-                    <div class="release-artist">{artist}</div>
-                    <div class="release-title">{title}</div>
-                    <a href="{spotify_url}" class="release-link" target="_blank">Listen on Spotify →</a>
-                </div>
+            releases.append({
+                'artist': escape(row.get('artist', 'Unknown')),
+                'title': escape(row.get('title', 'Untitled')),
+                'spotify_url': row.get('spotify_url', '#'),
+                'cover_url': row.get('cover_url', '')
+            })
+    return releases
+
+def build_cards(releases, limit=None):
+    if limit:
+        releases = releases[:limit]
+    cards = []
+    for r in releases:
+        cover_html = ''
+        if r['cover_url']:
+            cover_html = f'<img src="{r["cover_url"]}" alt="{r["title"]}">'
+        else:
+            cover_html = '<span class="placeholder">🎵</span>'
+        
+        card = f'''
+        <div class="release-card">
+            <div class="release-cover">
+                {cover_html}
             </div>
-            '''
-            cards.append(card)
-    
+            <div class="release-info">
+                <div class="release-artist">{r["artist"]}</div>
+                <div class="release-title">{r["title"]}</div>
+                <a href="{r["spotify_url"]}" class="release-link" target="_blank">Listen on Spotify →</a>
+            </div>
+        </div>'''
+        cards.append(card)
     return '\n'.join(cards)
 
+def update_file(filepath, releases, limit=None):
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    start = content.find('<!-- RELEASES_PLACEHOLDER -->')
+    end = content.find('<!-- END_RELEASES_PLACEHOLDER -->')
+    
+    if start == -1 or end == -1:
+        print(f"❌ Placeholders not found in {filepath}")
+        return
+    
+    new_cards = build_cards(releases, limit)
+    new_content = (content[:start] + 
+                   '<!-- RELEASES_PLACEHOLDER -->\n' + 
+                   new_cards + '\n' + 
+                   content[end:])
+    
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    
+    print(f"✅ Updated {filepath} (limit={limit if limit else 'all'})")
+
 if __name__ == '__main__':
-    cards_html = generate_release_cards('releases.csv')
-    
-    # Читаем текущий index.html
-    with open('index.html', 'r', encoding='utf-8') as f:
-        html_content = f.read()
-    
-    # Находим секцию с релизами (ищем маркер <!-- RELEASES_PLACEHOLDER -->)
-    start_marker = '<!-- RELEASES_PLACEHOLDER -->'
-    end_marker = '<!-- END_RELEASES_PLACEHOLDER -->'
-    
-    if start_marker in html_content and end_marker in html_content:
-        new_html = html_content.split(start_marker)[0] + start_marker + '\n' + cards_html + '\n' + html_content.split(end_marker)[1]
-        
-        with open('index.html', 'w', encoding='utf-8') as f:
-            f.write(new_html)
-        print("✅ Releases updated")
-    else:
-        print("❌ Placeholders not found in index.html")
+    releases = get_releases('releases.csv')
+    update_file('index.html', releases, limit=4)
+    update_file('releases.html', releases)
