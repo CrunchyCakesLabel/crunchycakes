@@ -344,6 +344,31 @@
             .release-cover { height: 180px; }
             .social-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
         }
+        <style>
+    ... (тут уже есть код)
+
+    /* Анимации появления */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Бонус: подъём карточек при наведении */
+    .release-card, .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .release-card:hover, .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
+    }
+</style>
     </style>
 </head>
 <body>
@@ -513,6 +538,22 @@
                 card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
             });
         });
+        <script>
+    // 3D Tilt эффект (уже есть, оставь как есть)
+
+    // Анимация появления
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.card, .release-card, .social-links, .releases-section h2, .more-info, .form-section, .header .logo, h1, .tagline').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
     </script>
 </body>
 </html>
