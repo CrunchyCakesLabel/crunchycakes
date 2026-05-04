@@ -59,11 +59,11 @@
             margin: 0 auto;
         }
 
-        /* Social Links (ОТДЕЛЬНЫЙ БЛОК) */
+        /* Social Links */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             margin: 2rem 0 1rem 0;
             flex-wrap: wrap;
         }
@@ -71,14 +71,15 @@
         .social-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
             background: #141414;
             border: 1px solid #333;
             color: #fff;
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 40px;
-            font-weight: 600;
+            font-weight: 500;
             text-decoration: none;
+            font-size: 0.9rem;
             transition: all 0.25s ease;
         }
 
@@ -124,7 +125,7 @@
         }
 
         .card h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
             letter-spacing: -0.01em;
@@ -132,7 +133,7 @@
 
         .card p, .card li {
             color: #aaa;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .card ul {
@@ -158,13 +159,14 @@
             display: inline-block;
             background: #ffffff;
             color: #0a0a0a;
-            padding: 0.8rem 2rem;
+            padding: 0.7rem 1.8rem;
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
             margin-top: 1.2rem;
             transition: all 0.25s ease;
             border: 1px solid rgba(255,255,255,0);
+            font-size: 0.9rem;
         }
 
         .btn:hover {
@@ -178,41 +180,112 @@
             background: transparent;
             border: 1px solid #333;
             color: #fff;
-            transition: all 0.25s ease;
         }
 
         .btn-outline:hover {
             background: rgba(255,255,255,0.05);
             border-color: #fff;
             box-shadow: 0 0 12px rgba(255,255,255,0.2);
-            transform: scale(1.02);
         }
 
-        /* Секция MORE INFO (подробнее) */
+        /* RELEASES SECTION */
+        .releases-section {
+            margin: 4rem 0;
+        }
+
+        .releases-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .releases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .release-card {
+            background: #141414;
+            border-radius: 20px;
+            border: 1px solid #2a2a2a;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .release-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .release-cover {
+            background: #0a0a0a;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .release-cover .placeholder {
+            font-size: 3rem;
+        }
+
+        .release-info {
+            padding: 1rem;
+        }
+
+        .release-artist {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.3rem;
+        }
+
+        .release-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .release-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s ease;
+        }
+
+        .release-link:hover {
+            color: #fff;
+        }
+
+        /* Секция MORE INFO */
         .more-info {
             background: linear-gradient(145deg, #0c0c0c, #080808);
             border-radius: 32px;
-            padding: 2.5rem;
+            padding: 2rem;
             margin: 3rem 0;
             border: 1px solid #222;
             scroll-margin-top: 100px;
         }
 
         .more-info h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
             text-align: center;
             letter-spacing: -0.02em;
         }
 
         .more-info h3 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem 0;
             color: #fff;
         }
 
         .more-info p {
             color: #aaa;
+            font-size: 0.9rem;
             margin-bottom: 0.8rem;
         }
 
@@ -223,6 +296,7 @@
 
         .more-info li {
             color: #aaa;
+            font-size: 0.9rem;
             margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
@@ -239,37 +313,35 @@
         .form-section {
             background: linear-gradient(145deg, #0f0f0f, #0a0a0a);
             border-radius: 32px;
-            padding: 2.5rem;
+            padding: 2rem;
             margin: 3rem 0;
             text-align: center;
             border: 1px solid #222;
-            transition: all 0.3s ease;
         }
 
-        .form-section:hover {
-            border-color: #2a2a2a;
-            box-shadow: 0 0 20px rgba(255,255,255,0.02);
+        .form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-section p {
+            font-size: 0.9rem;
+            color: #aaa;
         }
 
         .form-iframe {
-            margin-top: 1.8rem;
-            border-radius: 20px;
+            margin-top: 1.5rem;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .form-iframe:hover {
-            box-shadow: 0 10px 35px rgba(255,255,255,0.05);
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
             border-top: 1px solid #1c1c1c;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: #555;
         }
 
@@ -280,20 +352,24 @@
             h1 {
                 font-size: 1.8rem;
             }
-            .logo {
-                font-size: 3rem;
+            .logo img {
+                height: 50px;
             }
             .more-info {
-                padding: 1.5rem;
+                padding: 1.2rem;
             }
             .more-info h2 {
+                font-size: 1.4rem;
+            }
+            .releases-section h2 {
                 font-size: 1.5rem;
             }
-            .card {
-                transition: transform 0.2s ease;
+            .release-cover {
+                height: 180px;
             }
-            .card:hover {
-                transform: translateY(-4px) !important;
+            .social-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -312,15 +388,15 @@
         <!-- Преимущества / условия с 3D эффектом -->
         <div class="grid">
             <div class="tilt-card">
-                <div class="card" id="card1">
-                    <h3>📀 70/30 split</h3>
+                <div class="card">
+                    <h3>70/30 split</h3>
                     <p>You keep 70% of royalties. We take 30%. No hidden fees, no upfront payments.</p>
-                    <a href="#more-info" class="btn btn-outline" style="margin-top: 1rem;">Learn more ↓</a>
+                    <a href="#more-info" class="btn btn-outline">Learn more ↓</a>
                 </div>
             </div>
             <div class="tilt-card">
-                <div class="card" id="card2">
-                    <h3>🎨 Free cover art</h3>
+                <div class="card">
+                    <h3>Free cover art</h3>
                     <p>Professional, eye-catching covers designed by our team. No extra cost.</p>
                     <ul style="margin-top: 0.8rem;">
                         <li>Neon / dark aesthetic</li>
@@ -330,70 +406,108 @@
                 </div>
             </div>
             <div class="tilt-card">
-                <div class="card" id="card3">
-                    <h3>⚡ Fast distribution</h3>
+                <div class="card">
+                    <h3>Fast distribution</h3>
                     <p>3–7 days to all platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
                     <p style="margin-top: 0.8rem;"><strong>Payment:</strong> USDT (TRC-20). Label covers network fees.</p>
                 </div>
             </div>
         </div>
 
-        <!-- ОТДЕЛЬНЫЙ БЛОК С КНОПКАМИ (без 3D) -->
+        <!-- Кнопки соцсетей -->
         <div class="social-links">
-            <a href="#" class="social-btn">🎵 Discord</a>
-            <a href="#" class="social-btn">📷 Instagram</a>
+            <a href="https://discord.gg/DEZqjN4SRq" class="social-btn" target="_blank">Discord</a>
+            <a href="http://instagram.com/crunchycakesinc/" class="social-btn" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/@CrunchyCakess" class="social-btn" target="_blank">YouTube</a>
         </div>
 
-        <!-- О нас (только текст, без кнопок) -->
+        <!-- КАТАЛОГ РЕЛИЗОВ -->
+        <div class="releases-section">
+            <h2>Our releases</h2>
+            <div class="releases-grid">
+                <div class="release-card">
+                    <div class="release-cover">
+                        <span class="placeholder">🎵</span>
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">RLXM & Dragena</div>
+                        <div class="release-title">SILEVA</div>
+                        <a href="#" class="release-link">Listen on Spotify →</a>
+                    </div>
+                </div>
+                <div class="release-card">
+                    <div class="release-cover">
+                        <span class="placeholder">🎵</span>
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">JaraZ</div>
+                        <div class="release-title">MONTAGEM PARADOJE</div>
+                        <a href="#" class="release-link">Listen on Spotify →</a>
+                    </div>
+                </div>
+                <div class="release-card">
+                    <div class="release-cover">
+                        <span class="placeholder">🎵</span>
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">Dragena</div>
+                        <div class="release-title">MONTAGEM DESONA (ALT VERSION)</div>
+                        <a href="#" class="release-link">Listen on Spotify →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- О нас -->
         <div class="grid">
             <div class="tilt-card">
-                <div class="card" id="card4">
-                    <h3>🧁 Crunchy means pleasant</h3>
+                <div class="card">
+                    <h3>Crunchy means pleasant</h3>
                     <p>No bullshit, no exclusivity traps. We're an extremely independent community & label.</p>
                     <p style="margin-top: 0.8rem;">We focus on: <strong>Brazilian funk, phonk, electronic music.</strong></p>
                 </div>
             </div>
             <div class="tilt-card">
-                <div class="card" id="card5">
-                    <h3>📬 Send your demo</h3>
+                <div class="card">
+                    <h3>Send your demo</h3>
                     <p>Fill out the form below. Our A&R reviews every submission.</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">✅ Quick response — 3–5 days.</p>
+                    <p style="margin-top: 0.5rem;">✅ Quick response — 3–5 days.</p>
                 </div>
             </div>
         </div>
 
-        <!-- СЕКЦИЯ MORE INFO (Подробнее) -->
+        <!-- MORE INFO -->
         <div id="more-info" class="more-info">
-            <h2>📋 More info</h2>
+            <h2>More info</h2>
             <p><strong>Crunchy Cakes</strong> — an independent label built for artists, not against them. No tricky contracts, no hidden fees.</p>
             
-            <h3>💰 How royalties work</h3>
+            <h3>How royalties work</h3>
             <p>After distribution fees, we split the net royalties 70% to you, 30% to the label. Payments are made in <strong>USDT (TRC-20)</strong> once your balance reaches 50 USDT. The label pays all network fees — you get exactly your share.</p>
             
-            <h3>🖼️ Cover art</h3>
+            <h3>Cover art</h3>
             <p>We provide a professional cover for every release — custom design, high resolution, ready for streaming platforms. If you already have cover art, that's fine too.</p>
             
-            <h3>⚡ Speed & distribution</h3>
+            <h3>Speed & distribution</h3>
             <p>We release to all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more. Moderation usually takes 3–7 days.</p>
             
-            <h3>🔓 No exclusivity</h3>
+            <h3>No exclusivity</h3>
             <p>You're free to release music anywhere else. There's no lock-in period. If you want to leave — just let us know 30 days in advance.</p>
             
-            <h3>🚫 What we don't do</h3>
+            <h3>What we don't do</h3>
             <ul>
                 <li>No paid promo — we don't buy streams or fake placements</li>
                 <li>No guarantees — we don't promise a specific number of streams</li>
                 <li>No hidden fees — what you see is what you get</li>
             </ul>
             
-            <h3>🧁 Ready to release?</h3>
+            <h3>Ready to release?</h3>
             <p>Submit your demo using the form above. We'll review it and get back to you within 3–5 days.</p>
         </div>
 
-        <!-- Секция с формой Fillout -->
+        <!-- Форма Fillout -->
         <div class="form-section">
-            <h3 style="font-size: 1.8rem;">🚀 Submit your track</h3>
-            <p style="margin-bottom: 1rem;">Just fill the form — we'll take care of the rest.</p>
+            <h3>Submit your track</h3>
+            <p>Just fill the form — we'll take care of the rest.</p>
             <div class="form-iframe">
                 <iframe 
                     src="https://crunchycakes.fillout.com/demosubmission"
@@ -407,7 +521,7 @@
 
         <div class="footer">
             <p>© 2025 Crunchy Cakes — independent music label</p>
-            <p style="margin-top: 0.5rem;">🍰 Crunchy means pleasant · All rights reserved · fast · fair · independent</p>
+            <p>🍰 Crunchy means pleasant · fast · fair · independent</p>
         </div>
     </div>
 
