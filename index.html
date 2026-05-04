@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crunchy Cakes — Independent Music Label</title>
-    <!-- Шрифты и стили -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -89,7 +88,7 @@
             transform: scale(1.02);
         }
 
-        /* Cards / Layout */
+        /* Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -97,7 +96,6 @@
             margin: 3rem 0;
         }
 
-        /* 3D Tilt Card Container */
         .tilt-card {
             perspective: 1000px;
             transform-style: preserve-3d;
@@ -117,17 +115,13 @@
 
         .card:hover {
             border-color: #ffffff;
-            box-shadow: 
-                0 0 15px rgba(255, 255, 255, 0.05),
-                0 0 30px rgba(255, 255, 255, 0.03),
-                0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(255,255,255,0.05), 0 0 30px rgba(255,255,255,0.03), 0 10px 25px -5px rgba(0,0,0,0.5);
         }
 
         .card h3 {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            letter-spacing: -0.01em;
         }
 
         .card p, .card li {
@@ -153,7 +147,7 @@
             top: 0;
         }
 
-        /* BUTTON */
+        /* Buttons */
         .btn {
             display: inline-block;
             background: #ffffff;
@@ -164,15 +158,12 @@
             text-decoration: none;
             margin-top: 1.2rem;
             transition: all 0.25s ease;
-            border: 1px solid rgba(255,255,255,0);
             font-size: 0.9rem;
         }
 
         .btn:hover {
-            background: #ffffff;
             transform: scale(1.02);
             box-shadow: 0 0 12px rgba(255,255,255,0.4);
-            border-color: rgba(255,255,255,0.3);
         }
 
         .btn-outline {
@@ -187,7 +178,7 @@
             box-shadow: 0 0 12px rgba(255,255,255,0.2);
         }
 
-        /* RELEASES SECTION */
+        /* Releases */
         .releases-section {
             margin: 4rem 0;
         }
@@ -196,7 +187,6 @@
             text-align: center;
             font-size: 2rem;
             margin-bottom: 2rem;
-            letter-spacing: -0.02em;
         }
 
         .releases-grid {
@@ -216,7 +206,7 @@
         .release-card:hover {
             border-color: #ffffff;
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
         }
 
         .release-cover {
@@ -228,8 +218,10 @@
             border-bottom: 1px solid #2a2a2a;
         }
 
-        .release-cover .placeholder {
-            font-size: 3rem;
+        .release-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .release-info {
@@ -252,14 +244,13 @@
             color: #aaa;
             text-decoration: none;
             font-size: 0.8rem;
-            transition: color 0.2s ease;
         }
 
         .release-link:hover {
             color: #fff;
         }
 
-        /* Секция MORE INFO */
+        /* More Info */
         .more-info {
             background: linear-gradient(145deg, #0c0c0c, #080808);
             border-radius: 32px;
@@ -273,7 +264,6 @@
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             text-align: center;
-            letter-spacing: -0.02em;
         }
 
         .more-info h3 {
@@ -308,7 +298,7 @@
             top: 0;
         }
 
-        /* Секция для формы */
+        /* Form */
         .form-section {
             background: linear-gradient(145deg, #0f0f0f, #0a0a0a);
             border-radius: 32px;
@@ -345,37 +335,19 @@
         }
 
         @media (max-width: 700px) {
-            .header {
-                margin-bottom: 2rem;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            .logo img {
-                height: 50px;
-            }
-            .more-info {
-                padding: 1.2rem;
-            }
-            .more-info h2 {
-                font-size: 1.4rem;
-            }
-            .releases-section h2 {
-                font-size: 1.5rem;
-            }
-            .release-cover {
-                height: 180px;
-            }
-            .social-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
+            .header { margin-bottom: 2rem; }
+            h1 { font-size: 1.8rem; }
+            .logo img { height: 50px; }
+            .more-info { padding: 1.2rem; }
+            .more-info h2 { font-size: 1.4rem; }
+            .releases-section h2 { font-size: 1.5rem; }
+            .release-cover { height: 180px; }
+            .social-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Hero -->
         <div class="header">
             <div class="logo">
                 <img src="logo.png" alt="Crunchy Cakes" style="height: 80px; width: auto;">
@@ -384,7 +356,6 @@
             <div class="tagline">independent label — 70/30 split — free cover art — fast distribution</div>
         </div>
 
-        <!-- Преимущества / условия с 3D эффектом и эмодзи -->
         <div class="grid">
             <div class="tilt-card">
                 <div class="card">
@@ -396,7 +367,7 @@
             <div class="tilt-card">
                 <div class="card">
                     <h3>🎨 Free cover art</h3>
-                    <p>Professional, eye-catching covers designed by our team. No extra cost.</p>
+                    <p>Professional, eye-catching covers by our team. No extra cost.</p>
                     <ul style="margin-top: 0.8rem;">
                         <li>Neon / dark aesthetic</li>
                         <li>Custom typography</li>
@@ -413,69 +384,25 @@
             </div>
         </div>
 
-        <!-- Кнопки соцсетей (БЕЗ эмодзи) -->
         <div class="social-links">
             <a href="https://discord.gg/DEZqjN4SRq" class="social-btn" target="_blank">Discord</a>
             <a href="http://instagram.com/crunchycakesinc/" class="social-btn" target="_blank">Instagram</a>
             <a href="https://www.youtube.com/@CrunchyCakess" class="social-btn" target="_blank">YouTube</a>
         </div>
 
-        <!-- КАТАЛОГ РЕЛИЗОВ (автоматически обновляется) -->
+        <!-- RELEASES SECTION (AUTOMATICALLY UPDATED) -->
         <div class="releases-section">
             <h2>📀 Our releases</h2>
             <!-- RELEASES_PLACEHOLDER -->
-
-            <div class="release-card">
-                <div class="release-cover">
-                    <img src="https://cdn-image.zvuk.com/pic?hash=bfc71d24-c9d9-49fb-90f0-5a01ea8b32de&id=49885738&size=large&type=release" alt="SILEVA" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="release-info">
-                    <div class="release-artist">RLXM &amp; Dragena</div>
-                    <div class="release-title">SILEVA</div>
-                    <a href="https://open.spotify.com/album/2obH1dKCvQcWbPafRLKoG6?si=RnH7vEchSIm20DljZFCUkQ" class="release-link" target="_blank">Listen on Spotify →</a>
-                </div>
+            <div class="releases-grid">
+                <!-- releases will be inserted here -->
             </div>
-            
-
-            <div class="release-card">
-                <div class="release-cover">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNql6a6CZxJzlvvdfLudXRnJv8DQDQuY1q-g&s" alt="MONTAGEM DESONA (ALT VERSION)" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="release-info">
-                    <div class="release-artist">Dragena</div>
-                    <div class="release-title">MONTAGEM DESONA (ALT VERSION)</div>
-                    <a href="https://open.spotify.com/album/75vZ8q7VA2NebrkdaZiCsQ?si=U_0hRHsLS1uHjtcUTda43A" class="release-link" target="_blank">Listen on Spotify →</a>
-                </div>
+            <!-- END_RELEASES_PLACEHOLDER -->
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="releases.html" class="btn btn-outline">See all releases →</a>
             </div>
-            
-
-            <div class="release-card">
-                <div class="release-cover">
-                    <span class="placeholder">🎵</span>
-                </div>
-                <div class="release-info">
-                    <div class="release-artist">Jaraz</div>
-                    <div class="release-title">MONTAGEM PARADOJE</div>
-                    <a href="https://open.spotify.com/album/72uuZsYXb6nSWOHutp9mS0?si=5TbSNwyaRAWHSRDgTtv1lw" class="release-link" target="_blank">Listen on Spotify →</a>
-                </div>
-            </div>
-            
-
-            <div class="release-card">
-                <div class="release-cover">
-                    <span class="placeholder">🎵</span>
-                </div>
-                <div class="release-info">
-                    <div class="release-artist">NXPXLM</div>
-                    <div class="release-title">MONTAGEM ROLADA</div>
-                    <a href="https://open.spotify.com/album/18uRiJ5AinMiftM2KV00K5?si=WwNr0k0PRYO_MfWFpptFLQ" class="release-link" target="_blank">Listen on Spotify →</a>
-                </div>
-            </div>
-            
-
         </div>
 
-        <!-- О нас -->
         <div class="grid">
             <div class="tilt-card">
                 <div class="card">
@@ -493,46 +420,32 @@
             </div>
         </div>
 
-        <!-- MORE INFO -->
         <div id="more-info" class="more-info">
             <h2>📋 More info</h2>
             <p><strong>Crunchy Cakes</strong> — an independent label built for artists, not against them. No tricky contracts, no hidden fees.</p>
-            
             <h3>💰 How royalties work</h3>
-            <p>After distribution fees, we split the net royalties 70% to you, 30% to the label. Payments are made in <strong>USDT (TRC-20)</strong> once your balance reaches 50 USDT. The label pays all network fees — you get exactly your share.</p>
-            
+            <p>After distribution fees, we split net royalties 70% to you, 30% to the label. Payments in <strong>USDT (TRC-20)</strong> once your balance reaches 50 USDT. Label pays all network fees — you get exactly your share.</p>
             <h3>🖼️ Cover art</h3>
             <p>We provide a professional cover for every release — custom design, high resolution, ready for streaming platforms. If you already have cover art, that's fine too.</p>
-            
             <h3>⚡ Speed & distribution</h3>
-            <p>We release to all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more. Moderation usually takes 3–7 days.</p>
-            
+            <p>We release to all major platforms. Moderation usually takes 3–7 days.</p>
             <h3>🔓 No exclusivity</h3>
-            <p>You're free to release music anywhere else. There's no lock-in period. If you want to leave — just let us know 30 days in advance.</p>
-            
+            <p>You're free to release music anywhere else. No lock-in period.</p>
             <h3>🚫 What we don't do</h3>
             <ul>
                 <li>No paid promo — we don't buy streams or fake placements</li>
                 <li>No guarantees — we don't promise a specific number of streams</li>
                 <li>No hidden fees — what you see is what you get</li>
             </ul>
-            
             <h3>🧁 Ready to release?</h3>
             <p>Submit your demo using the form above. We'll review it and get back to you within 3–5 days.</p>
         </div>
 
-        <!-- Форма Fillout -->
         <div class="form-section">
             <h3>🚀 Submit your track</h3>
             <p>Just fill the form — we'll take care of the rest.</p>
             <div class="form-iframe">
-                <iframe 
-                    src="https://crunchycakes.fillout.com/demosubmission"
-                    width="100%" 
-                    height="650" 
-                    frameborder="0" 
-                    style="border: none; width: 100%; background: #fff; color: #000;">
-                </iframe>
+                <iframe src="https://crunchycakes.fillout.com/demosubmission" width="100%" height="650" frameborder="0" style="border: none; width: 100%; background: #fff; color: #000;"></iframe>
             </div>
         </div>
 
@@ -543,25 +456,19 @@
     </div>
 
     <script>
-        // 3D Tilt эффект для карточек
-        document.querySelectorAll('.tilt-card').forEach((tiltContainer) => {
-            const card = tiltContainer.querySelector('.card');
-            
-            tiltContainer.addEventListener('mousemove', (e) => {
-                const rect = tiltContainer.getBoundingClientRect();
+        document.querySelectorAll('.tilt-card').forEach((tilt) => {
+            const card = tilt.querySelector('.card');
+            tilt.addEventListener('mousemove', (e) => {
+                const rect = tilt.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
                 const rotateX = (y - centerY) / centerY * -5;
                 const rotateY = (x - centerX) / centerX * 5;
-                
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
             });
-            
-            tiltContainer.addEventListener('mouseleave', () => {
+            tilt.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
             });
         });
