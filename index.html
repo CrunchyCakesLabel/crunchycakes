@@ -13,6 +13,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
@@ -68,12 +72,17 @@
             padding: 1.8rem;
             border-radius: 24px;
             border: 1px solid #2a2a2a;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .card:hover {
-            border-color: #3a3a3a;
-            transform: translateY(-4px);
+            border-color: #ffffff;
+            transform: translateY(-6px);
+            box-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(255, 255, 255, 0.03),
+                0 10px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
         .card h3 {
@@ -116,23 +125,76 @@
             font-weight: 600;
             text-decoration: none;
             margin-top: 1.2rem;
-            transition: background 0.2s ease, transform 0.1s ease;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255,255,255,0);
         }
 
         .btn:hover {
-            background: #e0e0e0;
+            background: #ffffff;
             transform: scale(1.02);
+            box-shadow: 0 0 12px rgba(255,255,255,0.4);
+            border-color: rgba(255,255,255,0.3);
         }
 
         .btn-outline {
             background: transparent;
             border: 1px solid #333;
             color: #fff;
+            transition: all 0.25s ease;
         }
 
         .btn-outline:hover {
-            background: #1a1a1a;
+            background: rgba(255,255,255,0.05);
             border-color: #fff;
+            box-shadow: 0 0 12px rgba(255,255,255,0.2);
+            transform: scale(1.02);
+        }
+
+        /* Секция MORE INFO (подробнее) */
+        .more-info {
+            background: linear-gradient(145deg, #0c0c0c, #080808);
+            border-radius: 32px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border: 1px solid #222;
+            scroll-margin-top: 100px;
+        }
+
+        .more-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .more-info h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #fff;
+        }
+
+        .more-info p {
+            color: #aaa;
+            margin-bottom: 0.8rem;
+        }
+
+        .more-info ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .more-info li {
+            color: #aaa;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .more-info li::before {
+            content: "🧁";
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         /* Секция для формы */
@@ -143,6 +205,12 @@
             margin: 3rem 0;
             text-align: center;
             border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+
+        .form-section:hover {
+            border-color: #2a2a2a;
+            box-shadow: 0 0 20px rgba(255,255,255,0.02);
         }
 
         .form-iframe {
@@ -150,6 +218,11 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-iframe:hover {
+            box-shadow: 0 10px 35px rgba(255,255,255,0.05);
         }
 
         /* Footer */
@@ -172,6 +245,12 @@
             .logo {
                 font-size: 3rem;
             }
+            .more-info {
+                padding: 1.5rem;
+            }
+            .more-info h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -180,8 +259,8 @@
         <!-- Hero -->
         <div class="header">
             <div class="logo">
-    <img src="logo.png" alt="Crunchy Cakes" style="height: 80px; width: auto;">
-</div>
+                <img src="logo.png" alt="Crunchy Cakes" style="height: 80px; width: auto;">
+            </div>
             <h1>Crunchy Cakes</h1>
             <div class="tagline">independent label — 70/30 split — free cover art — fast distribution</div>
         </div>
@@ -191,7 +270,7 @@
             <div class="card">
                 <h3>📀 70/30 split</h3>
                 <p>You keep 70% of royalties. We take 30%. No hidden fees, no upfront payments.</p>
-                <a href="#" class="btn btn-outline" style="margin-top: 1rem;">Learn more ↓</a>
+                <a href="#more-info" class="btn btn-outline" style="margin-top: 1rem;">Learn more ↓</a>
             </div>
             <div class="card">
                 <h3>🎨 Free cover art</h3>
@@ -216,8 +295,8 @@
                 <p>No bullshit, no exclusivity traps. We're an extremely independent community & label.</p>
                 <p style="margin-top: 0.8rem;">We focus on: <strong>Brazilian funk, phonk, electronic music.</strong></p>
                 <div style="margin-top: 1rem;">
-                    <a href="#" class="btn btn-outline" style="margin-right: 0.5rem;">🎵 Discord</a>   <!-- ⬅️ ВСТАВЬ ССЫЛКУ НА DISCORD -->
-                    <a href="#" class="btn btn-outline">📷 Instagram</a>   <!-- ⬅️ ВСТАВЬ ССЫЛКУ НА INSTAGRAM -->
+                    <a href="#" class="btn btn-outline" style="margin-right: 0.5rem;">🎵 Discord</a>
+                    <a href="#" class="btn btn-outline">📷 Instagram</a>
                 </div>
             </div>
             <div class="card">
@@ -227,13 +306,41 @@
             </div>
         </div>
 
+        <!-- СЕКЦИЯ MORE INFO (Подробнее) -->
+        <div id="more-info" class="more-info">
+            <h2>📋 More info</h2>
+            <p><strong>Crunchy Cakes</strong> — an independent label built for artists, not against them. No tricky contracts, no hidden fees.</p>
+            
+            <h3>💰 How royalties work</h3>
+            <p>After distribution fees, we split the net royalties 70% to you, 30% to the label. Payments are made in <strong>USDT (TRC-20)</strong> once your balance reaches 50 USDT. The label pays all network fees — you get exactly your share.</p>
+            
+            <h3>🖼️ Cover art</h3>
+            <p>We provide a professional cover for every release — custom design, high resolution, ready for streaming platforms. If you already have cover art, that's fine too.</p>
+            
+            <h3>⚡ Speed & distribution</h3>
+            <p>We release to all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more. Moderation usually takes 3–7 days via FreshTunes Pro.</p>
+            
+            <h3>🔓 No exclusivity</h3>
+            <p>You're free to release music anywhere else. There's no lock-in period. If you want to leave — just let us know 30 days in advance.</p>
+            
+            <h3>🚫 What we don't do</h3>
+            <ul>
+                <li>No paid promo — we don't buy streams or fake placements</li>
+                <li>No guarantees — we don't promise a specific number of streams</li>
+                <li>No hidden fees — what you see is what you get</li>
+            </ul>
+            
+            <h3>🧁 Ready to release?</h3>
+            <p>Submit your demo using the form above. We'll review it and get back to you within 3–5 days.</p>
+        </div>
+
         <!-- Секция с формой Fillout -->
         <div class="form-section">
             <h3 style="font-size: 1.8rem;">🚀 Submit your track</h3>
             <p style="margin-bottom: 1rem;">Just fill the form — we'll take care of the rest.</p>
             <div class="form-iframe">
                 <iframe 
-                    src="https://crunchycakes.fillout.com/demosubmission"   <!-- ⬅️ ВСТАВЬ СВОЮ ССЫЛКУ НА FILLOUT -->
+                    src="https://crunchycakes.fillout.com/demosubmission"
                     width="100%" 
                     height="650" 
                     frameborder="0" 
