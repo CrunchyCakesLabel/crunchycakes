@@ -356,6 +356,8 @@
             transition: all 0.3s ease;
             max-width: 500px;
             margin: 0 auto;
+            position: relative;
+            cursor: pointer;
         }
 
         .division-card:hover {
@@ -389,6 +391,28 @@
         .division-description {
             color: #aaa;
             font-size: 0.95rem;
+        }
+
+        .division-tooltip {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            color: #0a0a0a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .division-card:hover .division-tooltip {
+            opacity: 1;
+            bottom: -45px;
         }
 
         /* More Info */
@@ -603,11 +627,33 @@
             <a href="https://www.youtube.com/@CrunchyCakess" class="social-btn" target="_blank">YouTube</a>
         </div>
 
-        <!-- RELEASES SECTION (LATEST 3) -->
+        <!-- RELEASES SECTION (4 RELEASES) -->
         <div class="releases-section">
             <h2>📀 Our releases</h2>
             <div class="releases-grid">
                 <!-- RELEASES_PLACEHOLDER -->
+
+                <div class="release-card">
+                    <div class="release-cover">
+                        <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/VAZIO%20INFERNAL.jpg?raw=true" alt="VAZIO INFERNAL">
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">Dragena &amp; NYXIS</div>
+                        <div class="release-title">VAZIO INFERNAL</div>
+                        <a href="https://open.spotify.com/album/0KgUJn7IvdbrLhzIuRdLTD?si=CWb1zZK3RPi7OyAWTdnzVQ" class="release-link" target="_blank">Listen on Spotify →</a>
+                    </div>
+                </div>
+
+                <div class="release-card">
+                    <div class="release-cover">
+                        <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ESSA%20BATIDA%20FUNK.jpg?raw=true" alt="ESSA BATIDA FUNK">
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">DJ Z1PP0</div>
+                        <div class="release-title">ESSA BATIDA FUNK</div>
+                        <a href="https://open.spotify.com/album/0hfvWoyhx84NSQKd12bQM3?si=hng65lUoQ6yYNAPjC4n2Fg" class="release-link" target="_blank">Listen on Spotify →</a>
+                    </div>
+                </div>
 
                 <div class="release-card">
                     <div class="release-cover">
@@ -628,17 +674,6 @@
                         <div class="release-artist">RLXM</div>
                         <div class="release-title">PESADO</div>
                         <a href="https://open.spotify.com/album/6aj4ztc4i9UWniWdwJOoRR?si=w3nYEK-kSSKqjHrLiZfRmA" class="release-link" target="_blank">Listen on Spotify →</a>
-                    </div>
-                </div>
-
-                <div class="release-card">
-                    <div class="release-cover">
-                        <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ESSA%20BATIDA%20FUNK.jpg?raw=true" alt="ESSA BATIDA FUNK">
-                    </div>
-                    <div class="release-info">
-                        <div class="release-artist">DJ Z1PP0</div>
-                        <div class="release-title">ESSA BATIDA FUNK</div>
-                        <a href="https://open.spotify.com/album/0hfvWoyhx84NSQKd12bQM3?si=hng65lUoQ6yYNAPjC4n2Fg" class="release-link" target="_blank">Listen on Spotify →</a>
                     </div>
                 </div>
                 <!-- END_RELEASES_PLACEHOLDER -->
@@ -672,12 +707,13 @@
         <!-- DIVISIONS SECTION -->
         <div class="divisions-section">
             <h2>🔊 Our divisions</h2>
-            <div class="division-card">
+            <div class="division-card" onclick="window.location.href='releases-pns.html'">
                 <div class="division-logo">
                     <img src="plsnosound-logo.png" alt="PlsNoSound">
                 </div>
                 <div class="division-name">PlsNoSound</div>
                 <div class="division-description">our sub-label, experimental music</div>
+                <div class="division-tooltip">click to see PlsNoSound discography</div>
             </div>
         </div>
 
@@ -751,7 +787,7 @@
         </div>
 
         <div class="footer">
-            <p>© est. 2025, Crunchy Cakes — independent music label</p>
+            <p>© Crunchy Cakes — independent music label · est. 2025</p>
             <p>🍰 Crunchy means pleasant · fair · independent</p>
         </div>
     </div>
