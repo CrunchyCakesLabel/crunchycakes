@@ -58,6 +58,14 @@
             margin: 0 auto;
         }
 
+        .slogan {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 1rem;
+            letter-spacing: 0.05em;
+        }
+
         /* Social Links */
         .social-links {
             display: flex;
@@ -250,6 +258,139 @@
             color: #fff;
         }
 
+        /* Partners Section */
+        .partners-section {
+            margin: 4rem 0;
+        }
+
+        .partners-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .partner-card {
+            background: #141414;
+            border-radius: 20px;
+            border: 1px solid #2a2a2a;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .partner-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        .partner-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .partner-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .partner-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-tooltip {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            color: #0a0a0a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover .partner-tooltip {
+            opacity: 1;
+            bottom: -45px;
+        }
+
+        /* Divisions Section */
+        .divisions-section {
+            margin: 4rem 0;
+        }
+
+        .divisions-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .division-card {
+            background: #141414;
+            border-radius: 20px;
+            border: 1px solid #2a2a2a;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .division-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        .division-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .division-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .division-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .division-description {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
         /* More Info */
         .more-info {
             background: linear-gradient(145deg, #0c0c0c, #080808);
@@ -338,11 +479,14 @@
             .header { margin-bottom: 2rem; }
             h1 { font-size: 1.8rem; }
             .logo img { height: 50px; }
+            .slogan { font-size: 1.1rem; }
             .more-info { padding: 1.2rem; }
             .more-info h2 { font-size: 1.4rem; }
             .releases-section h2 { font-size: 1.5rem; }
             .release-cover { height: 180px; }
             .social-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+            .partners-section h2 { font-size: 1.5rem; }
+            .divisions-section h2 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -353,7 +497,8 @@
                 <img src="logo.png" alt="Crunchy Cakes" style="height: 80px; width: auto;">
             </div>
             <h1>Crunchy Cakes</h1>
-            <div class="tagline">independent label — 70/30 split — free cover art — fast distribution</div>
+            <div class="slogan">"Crunchy means pleasant"</div>
+            <div class="tagline">independent label — 70/30 split — free cover art — worldwide distribution</div>
         </div>
 
         <div class="grid">
@@ -377,9 +522,9 @@
             </div>
             <div class="tilt-card">
                 <div class="card">
-                    <h3>⚡ Fast distribution</h3>
-                    <p>3–7 days to all platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
-                    <p style="margin-top: 0.8rem;"><strong>Payment:</strong> USDT (TRC-20). Label covers network fees.</p>
+                    <h3>🌍 Worldwide distribution</h3>
+                    <p>Your music on all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
+                    <p style="margin-top: 0.8rem;"><strong>Partner:</strong> LabelCaster</p>
                 </div>
             </div>
         </div>
@@ -390,57 +535,81 @@
             <a href="https://www.youtube.com/@CrunchyCakess" class="social-btn" target="_blank">YouTube</a>
         </div>
 
-        <!-- RELEASES SECTION (AUTOMATICALLY UPDATED) -->
+        <!-- RELEASES SECTION (LATEST 3) -->
         <div class="releases-section">
             <h2>📀 Our releases</h2>
-            <!-- RELEASES_PLACEHOLDER -->
+            <div class="releases-grid">
+                <!-- RELEASES_PLACEHOLDER -->
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/VAZIO%20INFERNAL.jpg?raw=true" alt="VAZIO INFERNAL">
-            </div>
-            <div class="release-info">
-                <div class="release-artist">Dragena &amp; NYXIS</div>
-                <div class="release-title">VAZIO INFERNAL</div>
-                <a href="https://open.spotify.com/album/0KgUJn7IvdbrLhzIuRdLTD?si=CWb1zZK3RPi7OyAWTdnzVQ" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
+                <div class="release-card">
+                    <div class="release-cover">
+                        <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20SIGILO%20mostnewww.jpg?raw=true" alt="MONTAGEM SIGILO">
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">KXLLDEVIL</div>
+                        <div class="release-title">MONTAGEM SIGILO</div>
+                        <a href="https://open.spotify.com/track/6wpGQRJ0DrGticLZOFRFjo?si=27acb540f9b04ede" class="release-link" target="_blank">Listen on Spotify →</a>
+                    </div>
+                </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ESSA%20BATIDA%20FUNK.jpg?raw=true" alt="ESSA BATIDA FUNK">
-            </div>
-            <div class="release-info">
-                <div class="release-artist">DJ Z1PP0</div>
-                <div class="release-title">ESSA BATIDA FUNK</div>
-                <a href="https://open.spotify.com/album/0hfvWoyhx84NSQKd12bQM3?si=hng65lUoQ6yYNAPjC4n2Fg" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
+                <div class="release-card">
+                    <div class="release-cover">
+                        <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/PESADO%20228.jpg?raw=true" alt="PESADO">
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">RLXM</div>
+                        <div class="release-title">PESADO</div>
+                        <a href="https://open.spotify.com/album/6aj4ztc4i9UWniWdwJOoRR?si=w3nYEK-kSSKqjHrLiZfRmA" class="release-link" target="_blank">Listen on Spotify →</a>
+                    </div>
+                </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20SIGILO%20mostnewww.jpg?raw=true" alt="MONTAGEM SIGILO">
+                <div class="release-card">
+                    <div class="release-cover">
+                        <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ESSA%20BATIDA%20FUNK.jpg?raw=true" alt="ESSA BATIDA FUNK">
+                    </div>
+                    <div class="release-info">
+                        <div class="release-artist">DJ Z1PP0</div>
+                        <div class="release-title">ESSA BATIDA FUNK</div>
+                        <a href="https://open.spotify.com/album/0hfvWoyhx84NSQKd12bQM3?si=hng65lUoQ6yYNAPjC4n2Fg" class="release-link" target="_blank">Listen on Spotify →</a>
+                    </div>
+                </div>
+                <!-- END_RELEASES_PLACEHOLDER -->
             </div>
-            <div class="release-info">
-                <div class="release-artist">KXLLDEVIL</div>
-                <div class="release-title">MONTAGEM SIGILO</div>
-                <a href="https://open.spotify.com/track/6wpGQRJ0DrGticLZOFRFjo?si=27acb540f9b04ede" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
-
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/PESADO%20228.jpg?raw=true" alt="PESADO">
-            </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">PESADO</div>
-                <a href="https://open.spotify.com/album/6aj4ztc4i9UWniWdwJOoRR?si=w3nYEK-kSSKqjHrLiZfRmA" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
-<!-- END_RELEASES_PLACEHOLDER -->
             <div style="text-align: center; margin-top: 1.5rem;">
                 <a href="releases.html" class="btn btn-outline">See all releases →</a>
+            </div>
+        </div>
+
+        <!-- PARTNERS SECTION -->
+        <div class="partners-section">
+            <h2>🤝 Our partners</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="obscura-logo.png" alt="OBSCURA RECORDS">
+                    </div>
+                    <div class="partner-name">OBSCURA RECORDS</div>
+                    <div class="partner-tooltip">Growth Partner</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="labelcaster-logo.png" alt="LabelCaster">
+                    </div>
+                    <div class="partner-name">LabelCaster</div>
+                    <div class="partner-tooltip">Distribution Partner</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIVISIONS SECTION -->
+        <div class="divisions-section">
+            <h2>🔊 Our divisions</h2>
+            <div class="division-card">
+                <div class="division-logo">
+                    <img src="plsnosound-logo.png" alt="PlsNoSound">
+                </div>
+                <div class="division-name">PlsNoSound</div>
+                <div class="division-description">our sub-label, experimental music</div>
             </div>
         </div>
 
@@ -465,11 +634,11 @@
             <h2>📋 More info</h2>
             <p><strong>Crunchy Cakes</strong> — an independent label built for artists, not against them. No tricky contracts, no hidden fees.</p>
             <h3>💰 How royalties work</h3>
-            <p>After distribution fees, we split net royalties 70% to you, 30% to the label. Payments in <strong>USDT (TRC-20)</strong> once your balance reaches 50 USDT. Label pays all network fees — you get exactly your share.</p>
+            <p>After distribution fees, we split net royalties 70% to you, 30% to the label. Payments processed via our distribution partner LabelCaster.</p>
             <h3>🖼️ Cover art</h3>
             <p>We provide a professional cover for every release — custom design, high resolution, ready for streaming platforms. If you already have cover art, that's fine too.</p>
-            <h3>⚡ Speed & distribution</h3>
-            <p>We release to all major platforms. Moderation usually takes 3–7 days.</p>
+            <h3>🌍 Distribution</h3>
+            <p>We release to all major platforms through LabelCaster. Standard moderation takes about 7 days.</p>
             <h3>🔓 No exclusivity</h3>
             <p>You're free to release music anywhere else. No lock-in period.</p>
             <h3>🚫 What we don't do</h3>
@@ -492,7 +661,7 @@
 
         <div class="footer">
             <p>© 2025 Crunchy Cakes — independent music label</p>
-            <p>🍰 Crunchy means pleasant · fast · fair · independent</p>
+            <p>🍰 Crunchy means pleasant · fair · independent</p>
         </div>
     </div>
 
