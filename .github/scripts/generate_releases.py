@@ -62,6 +62,19 @@ def update_file(filepath, releases, limit=None):
     print(f"✅ Updated {filepath} (limit={limit if limit else 'all'})")
 
 if __name__ == '__main__':
-    releases = get_releases('releases.csv')
-    update_file('index.html', releases, limit=4)
-    update_file('releases.html', releases)
+    # Обработка Crunchy Cakes релизов
+    try:
+        releases_cc = get_releases('releases.csv')
+        update_file('index.html', releases_cc, limit=4)
+        update_file('releases.html', releases_cc)
+    except FileNotFoundError:
+        print("❌ releases.csv not found, skipping CC releases")
+    
+    # Обработка PlsNoSound релизов
+    try:
+        releases_pns = get_releases('releases_pns.csv')
+        update_file('releases-pns.html', releases_pns)
+    except FileNotFoundError:
+        print("❌ releases_pns.csv not found, skipping PNS releases")
+    
+    print("🎉 All releases updated!")
