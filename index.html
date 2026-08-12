@@ -38,6 +38,11 @@
         .logo {
             font-size: 4rem;
             margin-bottom: 1rem;
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(-2deg);
         }
 
         h1 {
@@ -64,6 +69,12 @@
             color: #fff;
             margin-top: 1rem;
             letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .slogan:hover {
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            letter-spacing: 0.1em;
         }
 
         /* Social Links */
@@ -86,15 +97,32 @@
             font-weight: 500;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .social-btn:hover::before {
+            left: 100%;
         }
 
         .social-btn:hover {
             background: rgba(255,255,255,0.05);
             border-color: #fff;
-            box-shadow: 0 0 12px rgba(255,255,255,0.2);
-            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+            transform: translateY(-3px) scale(1.05);
         }
 
         /* Cards */
@@ -105,34 +133,49 @@
             margin: 3rem 0;
         }
 
-        .tilt-card {
-            perspective: 1000px;
-            transform-style: preserve-3d;
-        }
-
         .card {
             background: #141414;
             padding: 1.8rem;
             border-radius: 24px;
             border: 1px solid #2a2a2a;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
-            will-change: transform;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
         }
 
         .card:hover {
             border-color: #ffffff;
-            box-shadow: 0 0 15px rgba(255,255,255,0.05), 0 0 30px rgba(255,255,255,0.03), 0 10px 25px -5px rgba(0,0,0,0.5);
+            box-shadow: 0 0 20px rgba(255,255,255,0.08), 0 0 40px rgba(255,255,255,0.04), 0 20px 40px -10px rgba(0,0,0,0.6);
+            transform: translateY(-8px) scale(1.02);
         }
 
         .card h3 {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover h3 {
+            transform: translateX(5px);
         }
 
         .card p, .card li {
@@ -149,6 +192,11 @@
             margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .card li:hover {
+            transform: translateX(3px);
         }
 
         .card li::before {
@@ -156,6 +204,11 @@
             position: absolute;
             left: 0;
             top: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .card li:hover::before {
+            transform: scale(1.2) rotate(10deg);
         }
 
         /* Buttons */
@@ -167,19 +220,36 @@
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
-            margin-top: 1.2rem;
-            transition: all 0.25s ease;
+            margin-top: auto;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-size: 0.9rem;
-            position: relative;
-            z-index: 10;
-            pointer-events: auto;
             align-self: flex-start;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: width 0.5s ease, height 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 12px rgba(255,255,255,0.4);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
 
         .btn-outline {
@@ -188,10 +258,14 @@
             color: #fff;
         }
 
+        .btn-outline::before {
+            background: rgba(255,255,255,0.1);
+        }
+
         .btn-outline:hover {
             background: rgba(255,255,255,0.05);
             border-color: #fff;
-            box-shadow: 0 0 12px rgba(255,255,255,0.2);
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
 
         /* Releases */
@@ -216,13 +290,31 @@
             border-radius: 20px;
             border: 1px solid #2a2a2a;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .release-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .release-card:hover::after {
+            opacity: 1;
         }
 
         .release-card:hover {
             border-color: #ffffff;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.1);
         }
 
         .release-cover {
@@ -232,12 +324,18 @@
             align-items: center;
             justify-content: center;
             border-bottom: 1px solid #2a2a2a;
+            overflow: hidden;
         }
 
         .release-cover img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .release-card:hover .release-cover img {
+            transform: scale(1.1);
         }
 
         .release-info {
@@ -260,6 +358,23 @@
             color: #aaa;
             text-decoration: none;
             font-size: 0.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .release-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .release-link:hover::after {
+            width: 100%;
         }
 
         .release-link:hover {
@@ -289,15 +404,32 @@
             border: 1px solid #2a2a2a;
             padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             cursor: pointer;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .partner-card:hover::before {
+            opacity: 1;
         }
 
         .partner-card:hover {
             border-color: #ffffff;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 30px -5px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.08);
         }
 
         .partner-logo {
@@ -307,6 +439,11 @@
             justify-content: center;
             margin-bottom: 1.5rem;
             filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .partner-card:hover .partner-logo {
+            transform: scale(1.1);
         }
 
         .partner-logo img {
@@ -361,17 +498,33 @@
             border: 1px solid #2a2a2a;
             padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             max-width: 500px;
             margin: 0 auto;
             position: relative;
             cursor: pointer;
+            overflow: hidden;
+        }
+
+        .division-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .division-card:hover::after {
+            left: 100%;
         }
 
         .division-card:hover {
             border-color: #ffffff;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.08);
         }
 
         .division-logo {
@@ -381,6 +534,11 @@
             justify-content: center;
             margin-bottom: 1.5rem;
             filter: brightness(0) invert(1);
+            transition: all 0.5s ease;
+        }
+
+        .division-card:hover .division-logo {
+            transform: scale(1.1) rotate(-3deg);
         }
 
         .division-logo img {
@@ -394,6 +552,11 @@
             font-weight: 700;
             color: #fff;
             margin-bottom: 0.5rem;
+            transition: letter-spacing 0.3s ease;
+        }
+
+        .division-card:hover .division-name {
+            letter-spacing: 0.05em;
         }
 
         .division-description {
@@ -431,6 +594,12 @@
             margin: 3rem 0;
             border: 1px solid #222;
             scroll-margin-top: 100px;
+            transition: all 0.4s ease;
+        }
+
+        .more-info:hover {
+            border-color: #444;
+            box-shadow: 0 0 20px rgba(255,255,255,0.03);
         }
 
         .more-info h2 {
@@ -462,6 +631,11 @@
             margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .more-info li:hover {
+            transform: translateX(5px);
         }
 
         .more-info li::before {
@@ -469,6 +643,11 @@
             position: absolute;
             left: 0;
             top: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .more-info li:hover::before {
+            transform: scale(1.2) rotate(10deg);
         }
 
         /* Form */
@@ -480,6 +659,12 @@
             text-align: center;
             border: 1px solid #222;
             scroll-margin-top: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .form-section:hover {
+            border-color: #444;
+            box-shadow: 0 0 20px rgba(255,255,255,0.03);
         }
 
         .form-section h3 {
@@ -527,6 +712,7 @@
             outline: none;
             border-color: #ffffff;
             box-shadow: 0 0 10px rgba(255,255,255,0.1);
+            transform: translateY(-2px);
         }
 
         .form-group input::placeholder,
@@ -548,14 +734,34 @@
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-family: 'Inter', sans-serif;
             margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: width 0.5s ease, height 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .submit-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .submit-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
 
         .submit-btn:disabled {
@@ -603,31 +809,25 @@
         </div>
 
         <div class="grid">
-            <div class="tilt-card">
-                <div class="card">
-                    <h3>📀 70/30 split</h3>
-                    <p>You keep 70% of royalties. We take 30%. No hidden fees, no upfront payments.</p>
-                    <a href="#more-info" class="btn btn-outline">Learn more ↓</a>
-                </div>
+            <div class="card">
+                <h3>📀 70/30 split</h3>
+                <p>You keep 70% of royalties. We take 30%. No hidden fees, no upfront payments.</p>
+                <a href="#more-info" class="btn btn-outline">Learn more ↓</a>
             </div>
-            <div class="tilt-card">
-                <div class="card">
-                    <h3>🎨 Free cover art</h3>
-                    <p>Professional, eye-catching covers by our team. No extra cost.</p>
-                    <ul style="margin-top: 0.8rem;">
-                        <li>Neon / dark aesthetic</li>
-                        <li>Custom typography</li>
-                        <li>Fits modern streaming</li>
-                    </ul>
-                </div>
+            <div class="card">
+                <h3>🎨 Free cover art</h3>
+                <p>Professional, eye-catching covers by our team. No extra cost.</p>
+                <ul style="margin-top: 0.8rem; margin-bottom: 1.2rem;">
+                    <li>Neon / dark aesthetic</li>
+                    <li>Custom typography</li>
+                    <li>Fits modern streaming</li>
+                </ul>
             </div>
-            <div class="tilt-card">
-                <div class="card">
-                    <h3>🌍 Worldwide distribution</h3>
-                    <p>Your music on all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
-                    <p style="margin-top: 0.8rem;"><strong>Partner:</strong> LabelCaster</p>
-                    <a href="#submit-demo" class="btn btn-outline">Submit your demo →</a>
-                </div>
+            <div class="card">
+                <h3>🌍 Worldwide distribution</h3>
+                <p>Your music on all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
+                <p style="margin-top: 0.8rem;"><strong>Partner:</strong> LabelCaster</p>
+                <a href="#submit-demo" class="btn btn-outline">Submit your demo →</a>
             </div>
         </div>
 
@@ -728,19 +928,15 @@
         </div>
 
         <div class="grid">
-            <div class="tilt-card">
-                <div class="card">
-                    <h3>🧁 Crunchy means pleasant</h3>
-                    <p>No bullshit, no exclusivity traps. We're an extremely independent community & label.</p>
-                    <p style="margin-top: 0.8rem;">We focus on: <strong>Brazilian funk, phonk, electronic music.</strong></p>
-                </div>
+            <div class="card">
+                <h3>🧁 Crunchy means pleasant</h3>
+                <p>No bullshit, no exclusivity traps. We're an extremely independent community & label.</p>
+                <p style="margin-top: 0.8rem;">We focus on: <strong>Brazilian funk, phonk, electronic music.</strong></p>
             </div>
-            <div class="tilt-card">
-                <div class="card">
-                    <h3>📬 Send your demo</h3>
-                    <p>Fill out the form below. Our A&R reviews every submission.</p>
-                    <p style="margin-top: 0.5rem;">✅ Quick response — 3–5 days.</p>
-                </div>
+            <div class="card">
+                <h3>📬 Send your demo</h3>
+                <p>Fill out the form below. Our A&R reviews every submission.</p>
+                <p style="margin-top: 0.5rem;">✅ Quick response — 3–5 days.</p>
             </div>
         </div>
 
@@ -803,42 +999,6 @@
     </div>
 
     <script>
-        // Tilt effect for cards
-        document.querySelectorAll('.tilt-card').forEach((tilt) => {
-            const card = tilt.querySelector('.card');
-            let isHovering = false;
-            
-            tilt.addEventListener('mouseenter', () => {
-                isHovering = true;
-            });
-            
-            tilt.addEventListener('mousemove', (e) => {
-                if (!isHovering) return;
-                
-                const rect = tilt.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / centerY * -5;
-                const rotateY = (x - centerX) / centerX * 5;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
-            });
-            
-            tilt.addEventListener('mouseleave', () => {
-                isHovering = false;
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-            });
-            
-            // Разрешаем клики по кнопкам
-            const buttons = card.querySelectorAll('.btn');
-            buttons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
-            });
-        });
-
         // Form submission with Formspree
         document.getElementById('demo-form').addEventListener('submit', function(e) {
             e.preventDefault();
