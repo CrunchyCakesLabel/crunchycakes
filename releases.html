@@ -28,6 +28,7 @@
             margin-bottom: 2rem;
             color: #aaa;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         .back-link:hover {
             color: #fff;
@@ -42,12 +43,29 @@
             border-radius: 20px;
             border: 1px solid #2a2a2a;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .release-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .release-card:hover::after {
+            opacity: 1;
         }
         .release-card:hover {
             border-color: #ffffff;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.1);
         }
         .release-cover {
             background: #0a0a0a;
@@ -56,14 +74,21 @@
             align-items: center;
             justify-content: center;
             border-bottom: 1px solid #2a2a2a;
+            overflow: hidden;
         }
         .release-cover img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .release-card:hover .release-cover img {
+            transform: scale(1.1);
         }
         .release-info {
             padding: 1rem;
+            position: relative;
+            z-index: 2;
         }
         .release-artist {
             font-size: 0.8rem;
@@ -74,11 +99,31 @@
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        .release-card:hover .release-title {
+            transform: translateX(5px);
         }
         .release-link {
             color: #aaa;
             text-decoration: none;
             font-size: 0.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        .release-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+        .release-link:hover::after {
+            width: 100%;
         }
         .release-link:hover {
             color: #fff;
@@ -118,215 +163,182 @@
         <div class="releases-grid">
             <!-- RELEASES_PLACEHOLDER -->
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MISTERIOSA%20ful.jpg?raw=true" alt="MISTERIOSA">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/VAZIO%20INFERNAL.jpg?raw=true" alt="VAZIO INFERNAL">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">Dragena &amp; NYXIS</div>
+                    <div class="release-title">VAZIO INFERNAL</div>
+                    <a href="https://open.spotify.com/album/0KgUJn7IvdbrLhzIuRdLTD?si=CWb1zZK3RPi7OyAWTdnzVQ" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">NXPXLM</div>
-                <div class="release-title">MISTERIOSA</div>
-                <a href="https://open.spotify.com/track/0BrWQXK8R5SntIqUnVQt5g?si=d04a42075d2d40b7" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/FUNK%20VOAR%20final.jpg?raw=true" alt="FUNK VOAR">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ESSA%20BATIDA%20FUNK.jpg?raw=true" alt="ESSA BATIDA FUNK">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">DJ Z1PP0</div>
+                    <div class="release-title">ESSA BATIDA FUNK</div>
+                    <a href="https://open.spotify.com/album/0hfvWoyhx84NSQKd12bQM3?si=hng65lUoQ6yYNAPjC4n2Fg" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">FUNK VOAR</div>
-                <a href="https://open.spotify.com/track/1Pa5JkY6LtR8LWRgCPR7Qy?si=448cb476410d49be" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/mtg%20tsunami%20obscura%20X%20crunchy.jpg?raw=true" alt="MTG TSUNAMI">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20SIGILO%20mostnewww.jpg?raw=true" alt="MONTAGEM SIGILO">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">KXLLDEVIL</div>
+                    <div class="release-title">MONTAGEM SIGILO</div>
+                    <a href="https://open.spotify.com/track/6wpGQRJ0DrGticLZOFRFjo?si=27acb540f9b04ede" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">NXPXLM</div>
-                <div class="release-title">MTG TSUNAMI</div>
-                <a href="https://open.spotify.com/album/7BRIO22JP1OWKY0uIMdTKm?si=DYQtyAScRfuUilIxiDIwAQ" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/VAZIO%20INFERNAL.jpg?raw=true" alt="VAZIO INFERNAL">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/PESADO%20228.jpg?raw=true" alt="PESADO">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">RLXM</div>
+                    <div class="release-title">PESADO</div>
+                    <a href="https://open.spotify.com/album/6aj4ztc4i9UWniWdwJOoRR?si=w3nYEK-kSSKqjHrLiZfRmA" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">Dragena &amp; NYXIS</div>
-                <div class="release-title">VAZIO INFERNAL</div>
-                <a href="https://open.spotify.com/album/0KgUJn7IvdbrLhzIuRdLTD?si=CWb1zZK3RPi7OyAWTdnzVQ" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ESSA%20BATIDA%20FUNK.jpg?raw=true" alt="ESSA BATIDA FUNK">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://cdn-image.zvuk.com/pic?hash=bfc71d24-c9d9-49fb-90f0-5a01ea8b32de&id=49885738&size=large&type=release" alt="SILEVA">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">RLXM &amp; Dragena</div>
+                    <div class="release-title">SILEVA</div>
+                    <a href="https://open.spotify.com/album/2obH1dKCvQcWbPafRLKoG6?si=RnH7vEchSIm20DljZFCUkQ" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">DJ Z1PP0</div>
-                <div class="release-title">ESSA BATIDA FUNK</div>
-                <a href="https://open.spotify.com/album/0hfvWoyhx84NSQKd12bQM3?si=hng65lUoQ6yYNAPjC4n2Fg" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20SIGILO%20mostnewww.jpg?raw=true" alt="MONTAGEM SIGILO">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20DESONA%20ALT.jpg?raw=true" alt="MONTAGEM DESONA (ALT VERSION)">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">Dragena</div>
+                    <div class="release-title">MONTAGEM DESONA (ALT VERSION)</div>
+                    <a href="https://open.spotify.com/album/75vZ8q7VA2NebrkdaZiCsQ?si=U_0hRHsLS1uHjtcUTda43A" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">KXLLDEVIL</div>
-                <div class="release-title">MONTAGEM SIGILO</div>
-                <a href="https://open.spotify.com/track/6wpGQRJ0DrGticLZOFRFjo?si=27acb540f9b04ede" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/PESADO%20228.jpg?raw=true" alt="PESADO">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20PARADOJE.jpg?raw=true" alt="MONTAGEM PARADOJE">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">Jaraz</div>
+                    <div class="release-title">MONTAGEM PARADOJE</div>
+                    <a href="https://open.spotify.com/album/72uuZsYXb6nSWOHutp9mS0?si=5TbSNwyaRAWHSRDgTtv1lw" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">PESADO</div>
-                <a href="https://open.spotify.com/album/6aj4ztc4i9UWniWdwJOoRR?si=w3nYEK-kSSKqjHrLiZfRmA" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://cdn-image.zvuk.com/pic?hash=bfc71d24-c9d9-49fb-90f0-5a01ea8b32de&id=49885738&size=large&type=release" alt="SILEVA">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20ROLADA.jpg?raw=true" alt="MONTAGEM ROLADA">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">NXPXLM</div>
+                    <div class="release-title">MONTAGEM ROLADA</div>
+                    <a href="https://open.spotify.com/album/18uRiJ5AinMiftM2KV00K5?si=WwNr0k0PRYO_MfWFpptFLQ" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM &amp; Dragena</div>
-                <div class="release-title">SILEVA</div>
-                <a href="https://open.spotify.com/album/2obH1dKCvQcWbPafRLKoG6?si=RnH7vEchSIm20DljZFCUkQ" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20DESONA%20ALT.jpg?raw=true" alt="MONTAGEM DESONA (ALT VERSION)">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ELA%20JOGA.jpg?raw=true" alt="ELA JOGA">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">RLXM</div>
+                    <div class="release-title">ELA JOGA</div>
+                    <a href="https://open.spotify.com/album/2jfWZsdR83KQtYEje4YzS0?si=36329649e56d4900" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">Dragena</div>
-                <div class="release-title">MONTAGEM DESONA (ALT VERSION)</div>
-                <a href="https://open.spotify.com/album/75vZ8q7VA2NebrkdaZiCsQ?si=U_0hRHsLS1uHjtcUTda43A" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20PARADOJE.jpg?raw=true" alt="MONTAGEM PARADOJE">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/AGUA%20LEVEZA.jpg?raw=true" alt="AGUA LEVEZA">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">RLXM</div>
+                    <div class="release-title">AGUA LEVEZA</div>
+                    <a href="https://open.spotify.com/album/35sPWOManmN4ozXLtFA6DG?si=c01aea1a8e784db3" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">Jaraz</div>
-                <div class="release-title">MONTAGEM PARADOJE</div>
-                <a href="https://open.spotify.com/album/72uuZsYXb6nSWOHutp9mS0?si=5TbSNwyaRAWHSRDgTtv1lw" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20ROLADA.jpg?raw=true" alt="MONTAGEM ROLADA">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20SEGURAR.jpg?raw=true" alt="MONTAGEM SEGURAR">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">RLXM</div>
+                    <div class="release-title">MONTAGEM SEGURAR</div>
+                    <a href="https://open.spotify.com/album/1UYHfZqvU8bhFL35fUWNss?si=4ce91546ad9e4a84" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">NXPXLM</div>
-                <div class="release-title">MONTAGEM ROLADA</div>
-                <a href="https://open.spotify.com/album/18uRiJ5AinMiftM2KV00K5?si=WwNr0k0PRYO_MfWFpptFLQ" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/ELA%20JOGA.jpg?raw=true" alt="ELA JOGA">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/FUNK%20QUENADA.jpg?raw=true" alt="FUNK QUENADA">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">DJ Z1PP0 &amp; NXPXLM</div>
+                    <div class="release-title">FUNK QUENADA</div>
+                    <a href="https://open.spotify.com/album/3ZG56C0frByRE6BPL6WWaN?si=10db85be4d3e4715" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">ELA JOGA</div>
-                <a href="https://open.spotify.com/album/2jfWZsdR83KQtYEje4YzS0?si=36329649e56d4900" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/AGUA%20LEVEZA.jpg?raw=true" alt="AGUA LEVEZA">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/essa%20batida.jpg?raw=true" alt="ESSA BATIDA">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">DJ Z1PP0</div>
+                    <div class="release-title">ESSA BATIDA</div>
+                    <a href="https://open.spotify.com/album/3oM5zcCzpRND22oMA9kXDI?si=2be5380888204489" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">AGUA LEVEZA</div>
-                <a href="https://open.spotify.com/album/35sPWOManmN4ozXLtFA6DG?si=c01aea1a8e784db3" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20SEGURAR.jpg?raw=true" alt="MONTAGEM SEGURAR">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20EARS.jpg?raw=true" alt="MONTAGEM EARS">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">D1LVL</div>
+                    <div class="release-title">MONTAGEM EARS</div>
+                    <a href="https://open.spotify.com/album/4tCrlboHIDXG0AP4nDdFe7?si=b68e23a3fa9742ae" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">MONTAGEM SEGURAR</div>
-                <a href="https://open.spotify.com/album/1UYHfZqvU8bhFL35fUWNss?si=4ce91546ad9e4a84" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/FUNK%20QUENADA.jpg?raw=true" alt="FUNK QUENADA">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/HYPNOTIZED%20FUNK.jpg?raw=true" alt="HYPNOTIZED FUNK">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">RLXM</div>
+                    <div class="release-title">HYPNOTIZED FUNK</div>
+                    <a href="https://open.spotify.com/album/0d5mf8FDG6lLcPSupsaqcX?si=2b973b2b150047aa" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">DJ Z1PP0 &amp; NXPXLM</div>
-                <div class="release-title">FUNK QUENADA</div>
-                <a href="https://open.spotify.com/album/3ZG56C0frByRE6BPL6WWaN?si=10db85be4d3e4715" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
 
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/essa%20batida.jpg?raw=true" alt="ESSA BATIDA">
+            <div class="release-card">
+                <div class="release-cover">
+                    <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20TRIADA.jpg?raw=true" alt="MONTAGEM TRIADA">
+                </div>
+                <div class="release-info">
+                    <div class="release-artist">RLXM</div>
+                    <div class="release-title">MONTAGEM TRIADA</div>
+                    <a href="https://open.spotify.com/album/2Cx7QtpXkOm8HAAbZF84rD?si=bd1f165fdd0c4ad2" class="release-link" target="_blank">Listen on Spotify →</a>
+                </div>
             </div>
-            <div class="release-info">
-                <div class="release-artist">DJ Z1PP0</div>
-                <div class="release-title">ESSA BATIDA</div>
-                <a href="https://open.spotify.com/album/3oM5zcCzpRND22oMA9kXDI?si=2be5380888204489" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
-
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20EARS.jpg?raw=true" alt="MONTAGEM EARS">
-            </div>
-            <div class="release-info">
-                <div class="release-artist">D1LVL</div>
-                <div class="release-title">MONTAGEM EARS</div>
-                <a href="https://open.spotify.com/album/4tCrlboHIDXG0AP4nDdFe7?si=b68e23a3fa9742ae" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
-
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/HYPNOTIZED%20FUNK.jpg?raw=true" alt="HYPNOTIZED FUNK">
-            </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">HYPNOTIZED FUNK</div>
-                <a href="https://open.spotify.com/album/0d5mf8FDG6lLcPSupsaqcX?si=2b973b2b150047aa" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
-
-        <div class="release-card">
-            <div class="release-cover">
-                <img src="https://github.com/CrunchyCakesLabel/crunchycakes/blob/main/MONTAGEM%20TRIADA.jpg?raw=true" alt="MONTAGEM TRIADA">
-            </div>
-            <div class="release-info">
-                <div class="release-artist">RLXM</div>
-                <div class="release-title">MONTAGEM TRIADA</div>
-                <a href="https://open.spotify.com/album/2Cx7QtpXkOm8HAAbZF84rD?si=bd1f165fdd0c4ad2" class="release-link" target="_blank">Listen on Spotify →</a>
-            </div>
-        </div>
-<!-- END_RELEASES_PLACEHOLDER -->
+            <!-- END_RELEASES_PLACEHOLDER -->
         </div>
         <div class="footer">
             <p>© 2025 Crunchy Cakes — independent music label</p>
