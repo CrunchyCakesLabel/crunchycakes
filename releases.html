@@ -6,46 +6,182 @@
     <title>All releases — Crunchy Cakes</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #e5e5e5;
             line-height: 1.5;
-            margin: 0;
-            padding: 2rem 1.5rem;
+            position: relative;
+            overflow-x: hidden;
         }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(800px 500px at 15% 10%, rgba(255,255,255,0.06), transparent 60%),
+                radial-gradient(900px 600px at 85% 30%, rgba(160,160,255,0.05), transparent 65%),
+                radial-gradient(700px 500px at 50% 90%, rgba(255,180,180,0.04), transparent 60%),
+                #0a0a0a;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 1;
         }
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+
+        /* ==================== PAGE HEADER (glass) ==================== */
+        .page-header {
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            padding: 2.2rem 2.2rem 2rem;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(22px) saturate(160%);
+            -webkit-backdrop-filter: blur(22px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow:
+                0 14px 44px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.18),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.03);
         }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .page-header > * {
+            position: relative;
+            z-index: 3;
+        }
+
         .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .back-link:hover {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             color: #fff;
+            padding: 0.55rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.22);
+            margin-bottom: 1.6rem;
+            position: relative;
+            overflow: hidden;
         }
+
+        .back-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                transparent 0%,
+                rgba(255,255,255,0.15) 40%,
+                rgba(255,255,255,0.35) 50%,
+                rgba(255,255,255,0.15) 60%,
+                transparent 100%);
+            transform: skewX(-20deg);
+            transition: left 0.7s ease;
+            pointer-events: none;
+        }
+
+        .back-link:hover::before { left: 120%; }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 26px rgba(0, 0, 0, 0.45),
+                0 0 20px rgba(255, 255, 255, 0.16),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #9a9a9a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .page-header p {
+            color: #a8a8a8;
+            font-size: 0.95rem;
+        }
+
+        /* ==================== RELEASES GRID ==================== */
         .releases-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.5rem;
         }
+
         .release-card {
-            background: #141414;
             border-radius: 20px;
-            border: 1px solid #2a2a2a;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px) saturate(150%);
+            -webkit-backdrop-filter: blur(16px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.16);
         }
+
         .release-card::after {
             content: '';
             position: absolute;
@@ -53,65 +189,79 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 55%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
             z-index: 1;
         }
-        .release-card:hover::after {
-            opacity: 1;
-        }
+
+        .release-card:hover::after { opacity: 1; }
+
         .release-card:hover {
-            border-color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.35);
             transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.1);
+            box-shadow:
+                0 25px 50px -10px rgba(0,0,0,0.8),
+                0 0 26px rgba(255,255,255,0.14),
+                inset 0 1px 0 rgba(255,255,255,0.3);
         }
+
         .release-cover {
             background: #0a0a0a;
             height: 260px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             overflow: hidden;
+            position: relative;
+            z-index: 2;
         }
+
         .release-cover img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
+
         .release-card:hover .release-cover img {
             transform: scale(1.1);
         }
+
         .release-info {
             padding: 1rem;
             position: relative;
             z-index: 2;
         }
+
         .release-artist {
             font-size: 0.8rem;
-            color: #888;
+            color: #999;
             margin-bottom: 0.3rem;
         }
+
         .release-title {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
             transition: transform 0.3s ease;
         }
+
         .release-card:hover .release-title {
             transform: translateX(5px);
         }
+
         .release-link {
-            color: #aaa;
+            color: #bbb;
             text-decoration: none;
             font-size: 0.8rem;
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
         }
+
         .release-link::after {
             content: '';
             position: absolute;
@@ -122,44 +272,102 @@
             background: #fff;
             transition: width 0.3s ease;
         }
-        .release-link:hover::after {
-            width: 100%;
-        }
-        .release-link:hover {
-            color: #fff;
-        }
+
+        .release-link:hover::after { width: 100%; }
+        .release-link:hover { color: #fff; }
+
+        /* ==================== FOOTER ==================== */
         .footer {
             text-align: center;
             margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             font-size: 0.75rem;
-            color: #555;
+            color: #666;
+            position: relative;
+            z-index: 3;
         }
-        
-        /* Адаптивность */
-        @media (max-width: 1200px) {
-            .releases-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+
+        /* ==================== CURSOR SPOTLIGHT (subtle) ==================== */
+        #cursor-spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            transform: translate3d(-50%, -50%, 0);
+            background: radial-gradient(
+                circle at center,
+                rgba(255, 255, 255, 0.035) 0%,
+                rgba(255, 255, 255, 0.018) 35%,
+                rgba(255, 255, 255, 0.006) 60%,
+                transparent 78%
+            );
+            filter: blur(24px);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            mix-blend-mode: screen;
         }
-        @media (max-width: 900px) {
-            .releases-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        body.has-cursor #cursor-spotlight {
+            opacity: 0.7;
         }
-        @media (max-width: 600px) {
-            .releases-grid {
-                grid-template-columns: 1fr;
-            }
-            .release-cover {
-                height: 200px;
-            }
+
+        .release-card,
+        .page-header,
+        .back-link {
+            --mx: 50%;
+            --my: 50%;
+        }
+
+        .hover-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            background: radial-gradient(
+                220px circle at var(--mx) var(--my),
+                rgba(255, 255, 255, 0.06),
+                rgba(255, 255, 255, 0.02) 45%,
+                transparent 70%
+            );
+            mix-blend-mode: screen;
+            z-index: 2;
+        }
+
+        .release-card:hover > .hover-glow,
+        .page-header:hover > .hover-glow,
+        .back-link:hover > .hover-glow {
+            opacity: 0.85;
+        }
+
+        .back-link { z-index: 1; }
+        .back-link > .hover-glow { z-index: 1; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 700px) {
+            .container { padding: 1.5rem 1rem; }
+            .page-header { padding: 1.6rem 1.2rem 1.4rem; border-radius: 22px; margin-bottom: 2rem; }
+            .release-cover { height: 200px; }
+            #cursor-spotlight { width: 260px; height: 260px; }
         }
     </style>
 </head>
 <body>
+    <div id="cursor-spotlight"></div>
+
     <div class="container">
-        <a href="index.html" class="back-link">← Back to home</a>
-        <h1>📀 All releases</h1>
+        <div class="page-header">
+            <a href="index.html" class="back-link">← Back to home</a>
+            <h1>📀 All releases</h1>
+            <p>Everything we've put out so far — all on major streaming platforms.</p>
+        </div>
+
         <div class="releases-grid">
             <!-- RELEASES_PLACEHOLDER -->
 
@@ -373,9 +581,66 @@
         </div>
 <!-- END_RELEASES_PLACEHOLDER -->
         </div>
+
         <div class="footer">
             <p>© Crunchy Cakes — independent music label, est. 2025</p>
         </div>
     </div>
+
+    <!-- Cursor spotlight + hover glow (subtle) -->
+    <script>
+    (function () {
+        const spotlight = document.getElementById('cursor-spotlight');
+        let targetX = window.innerWidth / 2;
+        let targetY = window.innerHeight / 2;
+        let currentX = targetX;
+        let currentY = targetY;
+
+        document.addEventListener('mousemove', (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+            document.body.classList.add('has-cursor');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            document.body.classList.remove('has-cursor');
+        });
+
+        function loop() {
+            currentX += (targetX - currentX) * 0.12;
+            currentY += (targetY - currentY) * 0.12;
+            spotlight.style.transform = `translate3d(${currentX - 210}px, ${currentY - 210}px, 0)`;
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+
+        const SELECTOR = [
+            '.release-card',
+            '.page-header',
+            '.back-link'
+        ].join(',');
+
+        document.querySelectorAll(SELECTOR).forEach((el) => {
+            if (el.querySelector(':scope > .hover-glow')) return;
+
+            const glow = document.createElement('span');
+            glow.className = 'hover-glow';
+            el.appendChild(glow);
+
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                el.style.setProperty('--mx', x + '%');
+                el.style.setProperty('--my', y + '%');
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.style.setProperty('--mx', '50%');
+                el.style.setProperty('--my', '50%');
+            });
+        });
+    })();
+    </script>
 </body>
 </html>
