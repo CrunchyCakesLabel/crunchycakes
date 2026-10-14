@@ -90,7 +90,6 @@
             z-index: 2;
         }
 
-        /* визуалайзер (волна) — на самом заднем плане */
         #growth-chart {
             position: absolute;
             inset: 0;
@@ -101,7 +100,6 @@
             pointer-events: none;
         }
 
-        /* большой логотип-водяной знак за слоганом */
         .hero-watermark {
             position: absolute;
             top: 50%;
@@ -112,8 +110,6 @@
             z-index: 1;
             pointer-events: none;
             opacity: 0.9;
-
-            /* градиентная маска: сверху почти прозрачно, в середине плотнее, снизу полностью растворяется */
             -webkit-mask-image: linear-gradient(
                 to bottom,
                 rgba(0,0,0,0) 0%,
@@ -132,7 +128,6 @@
                 rgba(0,0,0,0.25) 85%,
                 rgba(0,0,0,0) 100%
             );
-
             filter: drop-shadow(0 0 40px rgba(255,255,255,0.10));
         }
 
@@ -526,9 +521,10 @@
         }
 
         /* ==================== RELEASE CARDS ==================== */
+        /* На главной — фиксированно 4 в ряд на десктопе для предпросмотра */
         .releases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 1.5rem;
         }
 
@@ -573,7 +569,7 @@
 
         .release-cover {
             background: #0a0a0a;
-            height: 260px;
+            height: 240px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1205,7 +1201,7 @@
             z-index: 3;
         }
 
-        /* ==================== CURSOR SPOTLIGHT (subtle) ==================== */
+        /* ==================== CURSOR SPOTLIGHT ==================== */
         #cursor-spotlight {
             position: fixed;
             top: 0;
@@ -1289,6 +1285,19 @@
         .social-btn::after,
         .submit-btn::after { z-index: 3; }
 
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1100px) {
+            .releases-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 800px) {
+            .releases-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         @media (max-width: 700px) {
             .hero { min-height: 75vh; padding: 3rem 1rem 2rem; margin-bottom: 2rem; }
             .hero-tagline { font-size: 0.95rem; }
@@ -1309,7 +1318,7 @@
             .more-info { padding: 1.2rem; }
             .more-info h2 { font-size: 1.4rem; }
             .releases-section h2 { font-size: 1.5rem; }
-            .release-cover { height: 180px; }
+            .release-cover { height: 200px; }
             .social-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
             .partners-section h2 { font-size: 1.5rem; }
             .divisions-section h2 { font-size: 1.5rem; }
@@ -1320,6 +1329,12 @@
             #cursor-spotlight {
                 width: 260px;
                 height: 260px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .releases-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1560,7 +1575,7 @@
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            fetch('https://formspree.io/xqpzbbyv', {
+            fetch('https://formspree.io/f/xqpzbbyv', {
                 method: 'POST',
                 body: formData,
                 headers: {
