@@ -90,14 +90,50 @@
             z-index: 2;
         }
 
+        /* визуалайзер (волна) — на самом заднем плане */
         #growth-chart {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.85;
+            opacity: 0.55;
             pointer-events: none;
+        }
+
+        /* большой логотип-водяной знак за слоганом */
+        .hero-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -58%);
+            width: clamp(320px, 55vw, 700px);
+            height: auto;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.9;
+
+            /* градиентная маска: сверху почти прозрачно, в середине плотнее, снизу полностью растворяется */
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0.35) 18%,
+                rgba(0,0,0,0.85) 45%,
+                rgba(0,0,0,0.75) 65%,
+                rgba(0,0,0,0.25) 85%,
+                rgba(0,0,0,0) 100%
+            );
+            mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0.35) 18%,
+                rgba(0,0,0,0.85) 45%,
+                rgba(0,0,0,0.75) 65%,
+                rgba(0,0,0,0.25) 85%,
+                rgba(0,0,0,0) 100%
+            );
+
+            filter: drop-shadow(0 0 40px rgba(255,255,255,0.10));
         }
 
         .hero-content {
@@ -106,15 +142,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .hero-logo {
-            margin-bottom: 2rem;
-            transition: transform 0.5s ease;
-        }
-
-        .hero-logo:hover {
-            transform: scale(1.05) rotate(-2deg);
         }
 
         .hero-slogan {
@@ -904,7 +931,7 @@
             transform: scale(1.2) rotate(10deg);
         }
 
-        /* ==================== FORM (redesigned) ==================== */
+        /* ==================== FORM ==================== */
         .form-section {
             border-radius: 32px;
             padding: 3rem 2.5rem;
@@ -1265,7 +1292,7 @@
         @media (max-width: 700px) {
             .hero { min-height: 75vh; padding: 3rem 1rem 2rem; margin-bottom: 2rem; }
             .hero-tagline { font-size: 0.95rem; }
-            .hero-logo img { height: 55px !important; }
+            .hero-watermark { width: 90vw; opacity: 0.75; }
 
             .hero-slogan .w1,
             .hero-slogan .w2,
@@ -1303,10 +1330,8 @@
     <div class="container">
         <section class="hero">
             <canvas id="growth-chart"></canvas>
+            <img src="logo.png" alt="" class="hero-watermark" aria-hidden="true">
             <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="logo.png" alt="Crunchy Cakes" style="height: 80px; width: auto;">
-                </div>
                 <div class="hero-slogan">
                     <span class="w1">Crunchy</span>
                     <span class="w2">means</span>
@@ -1468,7 +1493,7 @@
             <p>Submit your demo using the form below. We'll review it and get back to you within 3–5 days.</p>
         </div>
 
-        <!-- DEMO SUBMISSION FORM (redesigned) -->
+        <!-- DEMO SUBMISSION FORM -->
         <div class="form-section" id="submit-demo">
             <div class="form-header">
                 <div class="form-badge">
@@ -1535,7 +1560,7 @@
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            fetch('https://formspree.io/f/xqpzbbyv', {
+            fetch('https://formspree.io/xqpzbbyv', {
                 method: 'POST',
                 body: formData,
                 headers: {
