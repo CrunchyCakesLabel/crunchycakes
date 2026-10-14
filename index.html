@@ -55,6 +55,87 @@
             z-index: 1;
         }
 
+        /* ==================== ENTRANCE ANIMATIONS ==================== */
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes watermarkIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -48%) scale(0.92);
+            }
+            to {
+                opacity: 0.7;
+                transform: translate(-50%, -58%) scale(1);
+            }
+        }
+
+        @keyframes canvasIn {
+            from { opacity: 0; }
+            to   { opacity: 0.55; }
+        }
+
+        .hero-watermark {
+            animation: watermarkIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+        }
+
+        #growth-chart {
+            animation: canvasIn 1.6s ease-out 0.2s both;
+        }
+
+        .hero-slogan {
+            animation: floatUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+        }
+
+        .hero-tagline {
+            animation: floatUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+        }
+
+        .social-links {
+            animation: floatUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+        }
+
+        /* ==================== SCROLL REVEAL ==================== */
+        /* Элементы, которые появляются при скролле */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition:
+                opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Уважаем настройки пользователя */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-watermark,
+            #growth-chart,
+            .hero-slogan,
+            .hero-tagline,
+            .social-links,
+            .reveal {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .hero-watermark {
+                transform: translate(-50%, -58%) !important;
+            }
+        }
+
         /* ==================== HERO ==================== */
         .hero {
             position: relative;
@@ -100,7 +181,6 @@
             pointer-events: none;
         }
 
-        /* Логотип — баланс плотности и читаемости */
         .hero-watermark {
             position: absolute;
             top: 50%;
@@ -195,7 +275,6 @@
             -webkit-text-stroke: 2px #ffffff;
         }
 
-        /* tagline — белый со свечением */
         .hero-tagline {
             font-size: 1.1rem;
             color: #ffffff;
@@ -1371,12 +1450,12 @@
         </section>
 
         <div class="grid">
-            <div class="card">
+            <div class="card reveal">
                 <h3>📀 70/30 split</h3>
                 <p>You keep 70% of royalties. We take 30%. No hidden fees, no upfront payments.</p>
                 <a href="#more-info" class="btn btn-outline">Learn more ↓</a>
             </div>
-            <div class="card">
+            <div class="card reveal">
                 <h3>🎨 Free cover art</h3>
                 <p>Professional, eye-catching covers by our team. No extra cost.</p>
                 <ul style="margin-top: 0.8rem; margin-bottom: 1.2rem;">
@@ -1385,7 +1464,7 @@
                     <li>Fits modern streaming</li>
                 </ul>
             </div>
-            <div class="card">
+            <div class="card reveal">
                 <h3>🌍 Worldwide distribution</h3>
                 <p>Your music on all major platforms: Spotify, Apple Music, YouTube Music, TikTok, Instagram, and more.</p>
                 <p style="margin-top: 0.8rem;"><strong>Partner:</strong> LabelCaster</p>
@@ -1394,7 +1473,7 @@
         </div>
 
         <!-- RELEASES SECTION -->
-        <div class="releases-section">
+        <div class="releases-section reveal">
             <h2>📀 Our releases</h2>
             <div class="releases-grid">
                 <!-- RELEASES_PLACEHOLDER -->
@@ -1450,7 +1529,7 @@
         </div>
 
         <!-- PARTNERS SECTION -->
-        <div class="partners-section">
+        <div class="partners-section reveal">
             <h2>🤝 Our partners</h2>
             <div class="partners-grid">
                 <div class="partner-card">
@@ -1471,7 +1550,7 @@
         </div>
 
         <!-- DIVISIONS SECTION -->
-        <div class="divisions-section">
+        <div class="divisions-section reveal">
             <h2>🔊 Our divisions</h2>
             <div class="division-card" onclick="window.location.href='releases-pns.html'">
                 <div class="division-logo">
@@ -1484,19 +1563,19 @@
         </div>
 
         <div class="grid">
-            <div class="card">
+            <div class="card reveal">
                 <h3>🧁 Crunchy means pleasant</h3>
                 <p>No bullshit, no exclusivity traps. We're an extremely independent community & label.</p>
                 <p style="margin-top: 0.8rem;">We focus on: <strong>Brazilian funk, phonk, electronic music.</strong></p>
             </div>
-            <div class="card">
+            <div class="card reveal">
                 <h3>📬 Send your demo</h3>
                 <p>Fill out the form below. Our A&R reviews every submission.</p>
                 <p style="margin-top: 0.5rem;">✅ Quick response — 3–5 days.</p>
             </div>
         </div>
 
-        <div id="more-info" class="more-info">
+        <div id="more-info" class="more-info reveal">
             <h2>📋 More info</h2>
             <p><strong>Crunchy Cakes</strong> — an independent label built for artists, not against them. No tricky contracts, no hidden fees.</p>
             <h3>💰 How royalties work</h3>
@@ -1518,7 +1597,7 @@
         </div>
 
         <!-- DEMO SUBMISSION FORM -->
-        <div class="form-section" id="submit-demo">
+        <div class="form-section reveal" id="submit-demo">
             <div class="form-header">
                 <div class="form-badge">
                     <span class="dot"></span>
@@ -1607,6 +1686,36 @@
                 submitBtn.disabled = false;
             });
         });
+    </script>
+
+    <!-- Scroll reveal -->
+    <script>
+    (function () {
+        const els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+            // fallback — просто показать всё
+            els.forEach(el => el.classList.add('is-visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // лёгкая каскадная задержка для группы элементов
+                    const delay = Math.min(i * 80, 240);
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        els.forEach(el => observer.observe(el));
+    })();
     </script>
 
     <!-- Background liquid-glass audio visualizer -->
