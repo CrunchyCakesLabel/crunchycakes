@@ -100,6 +100,8 @@
             pointer-events: none;
         }
 
+        /* Логотип — теперь полупрозрачный, сильнее растворяется в центре,
+           чтобы не мешать читаемости слогана и tagline */
         .hero-watermark {
             position: absolute;
             top: 50%;
@@ -109,26 +111,28 @@
             height: auto;
             z-index: 1;
             pointer-events: none;
-            opacity: 0.9;
+            opacity: 0.45;
+
             -webkit-mask-image: linear-gradient(
                 to bottom,
                 rgba(0,0,0,0) 0%,
-                rgba(0,0,0,0.35) 18%,
-                rgba(0,0,0,0.85) 45%,
-                rgba(0,0,0,0.75) 65%,
-                rgba(0,0,0,0.25) 85%,
+                rgba(0,0,0,0.25) 15%,
+                rgba(0,0,0,0.45) 35%,
+                rgba(0,0,0,0.30) 55%,
+                rgba(0,0,0,0.15) 75%,
                 rgba(0,0,0,0) 100%
             );
             mask-image: linear-gradient(
                 to bottom,
                 rgba(0,0,0,0) 0%,
-                rgba(0,0,0,0.35) 18%,
-                rgba(0,0,0,0.85) 45%,
-                rgba(0,0,0,0.75) 65%,
-                rgba(0,0,0,0.25) 85%,
+                rgba(0,0,0,0.25) 15%,
+                rgba(0,0,0,0.45) 35%,
+                rgba(0,0,0,0.30) 55%,
+                rgba(0,0,0,0.15) 75%,
                 rgba(0,0,0,0) 100%
             );
-            filter: drop-shadow(0 0 40px rgba(255,255,255,0.10));
+
+            filter: drop-shadow(0 0 40px rgba(255,255,255,0.06));
         }
 
         .hero-content {
@@ -192,11 +196,18 @@
             -webkit-text-stroke: 2px #ffffff;
         }
 
+        /* tagline теперь белый со свечением */
         .hero-tagline {
             font-size: 1.1rem;
-            color: #a8a8a8;
+            color: #ffffff;
             max-width: 640px;
             margin-bottom: 2rem;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.45),
+                0 0 24px rgba(255, 255, 255, 0.25),
+                0 0 48px rgba(255, 255, 255, 0.12);
+            letter-spacing: 0.01em;
+            font-weight: 500;
         }
 
         /* ==================== SOCIAL BUTTONS ==================== */
@@ -521,7 +532,6 @@
         }
 
         /* ==================== RELEASE CARDS ==================== */
-        /* На главной — фиксированно 4 в ряд на десктопе для предпросмотра */
         .releases-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1301,7 +1311,7 @@
         @media (max-width: 700px) {
             .hero { min-height: 75vh; padding: 3rem 1rem 2rem; margin-bottom: 2rem; }
             .hero-tagline { font-size: 0.95rem; }
-            .hero-watermark { width: 90vw; opacity: 0.75; }
+            .hero-watermark { width: 90vw; opacity: 0.35; }
 
             .hero-slogan .w1,
             .hero-slogan .w2,
